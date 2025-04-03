@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+/* 공통 화면 */
+:root{
+    /* 메인 컬러 */
+    --purpleF: #4d148c;
+    --orangeF: #ff6200;
+    --blackC: #140A09;
+    --whiteC: #fafafa;
+    --magentaP: #E54530;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    background-color: var(--purpleF);
+    height: 100px;
+}
+
+.wrap {
+    background-color: var(--whiteC);
+    margin: auto;
+    display: flex;
+}
+/* 헤더 로고 */
+.logo>a {
+    height: 100px;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    height: 80%;
+}
+
+/* 공통 헤더 메뉴*/
+nav>ul {
+    display: flex;
+}
+nav>ul>li {
+    width: 25%;
+}
+
+/*공통 헤더 우측 버튼 */
+header>.wrap>a {
+    justify-content: flex-end;
+}
+
+/* */
+@media all and (min-width: 1320px) {
+    .wrap {
+        width: 1320px;
+        flex-direction: row;
+    }
+    
+}
