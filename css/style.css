@@ -135,9 +135,18 @@ header>.wrap>a.burgerButton {
 #imageSlide>div:first-child a {
     background-color: var(--blackC);
     color: var(--whitePerfect);
-    width: 150px;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    margin: 50px 0;
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 500ms;
+}
 
+#imageSlide>div:first-child a:hover {
+    background-color: var(--orangeF);
 }
 
 /* 이미지 슬라이드 점수 */
@@ -221,6 +230,30 @@ header>.wrap>a.burgerButton {
     width: 30%;
 }
 
+#slidePop li:last-of-type {
+    background-color: var(--whiteC);
+    box-sizing: border-box;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#slidePop li:last-of-type p {
+    margin-bottom: 30px;
+}
+
+#slidePop li:last-of-type a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--blackC);
+    color: var(--whitePerfect);
+    font-weight: bold;
+
+}
+
 /* 바로가기 */
 #direction {
     display: flex;
@@ -265,15 +298,14 @@ header>.wrap>a.burgerButton {
     background-color: violet;
     display: flex;
     justify-content: center;
+    padding: 0 25px;
 }
 
 #requestForm>.wrap {
     justify-content: center;
 }
 
-#requestForm>.wrap>div {
-    margin-top: 100px;
-}
+
 
 /* 신청서 */
 #requestForm .request {
@@ -295,26 +327,24 @@ header>.wrap>a.burgerButton {
 /* 신청서 안내 */
 #requestForm .noteRequest {
     color: #ffffff;
-    padding: 0 50px;
+    padding: 50px 25px 0;
+    width: 100%;
 }
 
-/* 섹션 3 */
+/* 댓글 */
 #replies {
     background-color: lightsalmon;
-    padding-top: 300px;
+    padding-top: 50px;
     display: flex;
     justify-content: center;
 }
+
 #replies>.wrap {
     flex-wrap: wrap;
-}
-
-#replies h1 {
-    width: calc(100% / 3);
+    padding: 0 25px;
 }
 
 #replies .repliesList{
-    width: calc(200% / 3);
     overflow: hidden;
 }
 
@@ -328,30 +358,40 @@ header>.wrap>a.burgerButton {
 
 #replies .repliesList li {
     background-color: darkorange;
-    width: 90%;
+    width: 30%;
     height: 450px;
+}
+
+#replies .repliesList li>p:nth-of-type(2) {
+    color: var(--blackC)
+}
+
+#replies .repliesList li .replyMember>div {
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    border-radius: 50%;
 }
 
 #replies .companies {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 100px;
-}
-
-#replies .companies>li {
-    width: calc(100% / 6);
 }
 
 /* 배너 */
 #bannerSite {
     display: flex;
     justify-content: center;
+    margin: 0 25px;
+    
 }
 
 .banner {
     background-color: rosybrown;
-    width: 1200px;
-    height: 250px
+    height: 250px;
+    width: 100%;
 }
 
 
@@ -365,18 +405,23 @@ header>.wrap>a.burgerButton {
 #blog>.wrap {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
+    padding: 25px;
 }
 
 #blog h1 {
-    width: 85%;
+    width: calc(100% - 100px);
+    display: flex;
+    align-self: center;
+
 }
 
 #blog>.wrap>a {
-    width: calc(15% - 50px);
+    width: 100px;
     height: 50px;
     line-height: 50px;
-    margin: 0 25px;
+    margin: 30px 0;
     font-weight: bold;
     color: var(--whitePerfect);
     justify-content: flex-end;
@@ -386,15 +431,11 @@ header>.wrap>a.burgerButton {
 }
 
 #blog .blogFirst {
-    width:50%;
-    height: 600px;
     background-color: crimson;
 }
 
-
 #blog .blogList {
     background-color: violet;
-    width:50%;
 }
 
 #blog .blogList li {
@@ -411,10 +452,12 @@ footer {
     justify-content: center;
     height: 600px;
 }
+
 footer>.wrap {
     flex-wrap: wrap;
     flex-wrap: wrap;
 }
+
 footer .footerLeft {
     width: 30%
 }
@@ -474,6 +517,7 @@ footer .footerBottom .sns {
     
     #imageSlide {
         flex-direction: column;
+        margin-bottom: 100px;
     }
 
     #imageSlide>div:last-child {
@@ -490,6 +534,10 @@ footer .footerBottom .sns {
         width: calc(100% - 50px);
         flex-direction: column;
     }
+
+    #slidePop li {
+        width: 100%;
+    }
     
     /*바로가기*/
     #direction .wrap {
@@ -504,20 +552,45 @@ footer .footerBottom .sns {
     }
 
     #direction .s1Right {
-        margin: 0 25px;
-        width: calc(100% - 50px);
+        width: 100%;
     }
 
     /* 신청양식 */
     #requestForm>.wrap{
         align-items: center;
-        flex-direction: column;    
+        flex-direction: column;   
+        padding: 50px 0;
     }
+
+    /* #requestForm>.wrap>div {
+        margin: 50px 0;
+    } */
 
     #requestForm .request {
-        width: calc(100% - 50px);
+        width: 100%;
     }
 
+    /* 댓글 */
+    #replies h1 {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    #replies .repliesList {
+        width: 100%;
+    }
+
+  
+
+    #replies .companies>li {
+        width: calc(100% / 2);
+    }
+
+    /* 블로그 글 */
+
+    #blog .blogFirst, #blog .blogList {
+        width: 100%;
+    }
 }
 
 /* 너비 760px 이상 */
@@ -556,7 +629,7 @@ footer .footerBottom .sns {
     /*이미지 슬라이드*/
     #imageSlide {
         width: 100%;
-        height: 650px;
+        margin-bottom: 100px;
         flex-direction: column;
     }
 
@@ -568,6 +641,10 @@ footer .footerBottom .sns {
         margin: 0 25px;
         width: calc(100% - 50px);
         flex-direction: column;
+    }
+
+    #slidePop li {
+        width: 100%;
     }
 
     /*바로가기*/
@@ -589,12 +666,32 @@ footer .footerBottom .sns {
     /* 신청양식 */
     #requestForm>.wrap{
         align-items: center;
-        align-content: center;
-        flex-direction: column;    
+        flex-direction: column;
+        padding: 50px 0;
     }
 
+
     #requestForm .request {
-        width: calc(100% - 50px);
+        width: 100%;
+    }
+
+    /* 댓글 */
+    #replies h1 {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    #replies .repliesList {
+        width: 100%;
+    }
+
+    #replies .companies>li {
+        width: calc(100% / 3);
+    }
+
+    /* 블로그 글 */
+    #blog .blogFirst, #blog .blogList {
+        width: 100%;
     }
 }
 
@@ -638,6 +735,7 @@ footer .footerBottom .sns {
     #imageSlide {
         width: 100%;
         height: 850px;
+        margin-bottom: 0;
         flex-direction: row;
     }
 
@@ -662,6 +760,7 @@ footer .footerBottom .sns {
 
     #imageSlide .starPoint {
         height: 100px;
+        margin-bottom: 100px;
     }
 
     /* 슬라이드 팝업 */
@@ -670,6 +769,11 @@ footer .footerBottom .sns {
         flex-direction: row;
         width: calc(100% - 50px);
     }
+
+    #slidePop li {
+        width: 30%;
+    }
+
 
     /* 바로가기 */
     #direction .wrap {
@@ -685,10 +789,35 @@ footer .footerBottom .sns {
     #requestForm>.wrap {
         flex-direction: row;
         align-items: normal;
+        padding: 0;
     }
 
     #requestForm>.wrap>div {
-        width: calc(100% - 50px)
+        margin-top: 100px;
+        width: 100%;
+    }
+
+    /* 댓글 */
+    #replies {
+        padding-top: 300px;
+    }
+
+    #replies h1 {
+        width: calc(100% / 3);
+    }
+
+    #replies .repliesList {
+        width: calc(200% / 3);
+    }
+
+    #replies .companies>li {
+        width: calc(100% / 6);
+    }
+
+    /* 블로그 글 */
+    #blog .blogFirst, #blog .blogList {
+        width: 50%;
+        height: 700px;
     }
 }
 
@@ -716,4 +845,11 @@ footer .footerBottom .sns {
 
     }
 
+    .banner {
+        background-color: rosybrown;
+        height: 250px;
+        width: 1320px;
+    }
+
+    
 }
