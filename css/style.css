@@ -127,8 +127,6 @@ header>.wrap>a.burgerButton {
 
 /* 슬라이드 좌측 */
 #imageSlide>div:first-child {
-    
-    
     padding-left: 25px;
     display: flex;
     flex-direction: column;
@@ -159,7 +157,6 @@ header>.wrap>a.burgerButton {
 }
 
 #imageSlide .starPoint li {
-    width: 50%;
     display: flex;
     align-items: center;
 }
@@ -181,11 +178,17 @@ header>.wrap>a.burgerButton {
 
 #imageSlide .starPoint>li:first-child ul {
     display: flex;
+    width: 100%
 }
 
 #imageSlide .starPoint>li:first-child ul>li:first-child {
     width: 100px;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    background-image: url(../image/starpoint.png);
+    font-weight: bolder;
+    font-size: 28px;
 }
 
 #imageSlide .starPoint>li:first-child ul>li:last-child>p {
@@ -199,15 +202,10 @@ header>.wrap>a.burgerButton {
 
 #imageSlide .starPoint>li:last-child li {
     display: flex;
-    background-color: blue;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
-}
-
-#imageSlide .starPoint>li:last-child li:nth-of-type(even) {
-    background-color: purple
 }
 
 #imageSlide .starPoint>li:last-child li img {
@@ -357,8 +355,8 @@ header>.wrap>a.burgerButton {
 
 #replies .repliesList {
     position: relative;
-    width: calc(200% / 3 - 100px);
-    margin: 0 50px;
+    /* width: calc(200% / 3 - 100px); */
+    /* margin: 0 50px; */
 }
 
 #replies .repliesList>p {
@@ -388,47 +386,45 @@ header>.wrap>a.burgerButton {
     right: -25px
 }
 
-#replies .repliesList>div {
+#replies .replyWrap {
     overflow: hidden;
 }
 
-#replies .repliesList>div ul {
+#replies .replySlide {
     background-color: transparent;
     display: flex;
     justify-content: space-evenly;
     width: calc(400% / 2);
-    /* width: 100% */
-
 }
 
-#replies .repliesList>div>ul>li {
+#replies .replySlide>li {
     background-color: var(--whiteC);
     border: 3px solid var(--purpleF);
     width: 20%;
     padding: 25px;
 }
 
-#replies .repliesList>div>ul>li p:last-of-type {
+#replies .replySlide>li p:last-of-type {
     color:var(--orangeF);
 }
 
-#replies .repliesList .replyMember {
+#replies .replyMember {
     display: flex;
     flex-wrap: wrap;
 }
 
-#replies .repliesList li .replyMember>div {
+#replies .replyMember>div {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
 }
 
-#replies .repliesList li .replyMember>div img {
+#replies .replyMember>div img {
     width: 100%;
 }
 
-#replies .repliesList li .replyMember ul {
+#replies .replyMember ul {
     width: calc(100% - 75px);
     margin-left: 25px;
     display: flex;
@@ -469,7 +465,7 @@ header>.wrap>a.burgerButton {
 
 #bannerSite .banner li {
     height: 50%;
-    font-size: 50px;
+    font-size: 30px;
     display: flex;
     align-items: center;
 }
@@ -477,11 +473,12 @@ header>.wrap>a.burgerButton {
 #bannerSite .banner a {
     display: block;
     background-color: var(--orangeF);
-    width: 250px;
-    height: 250px;
-    line-height: 250px;
-    text-align: center;
-    font-size: 50px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
     font-weight: bold;
     color: var(--whitePerfect);
     border-radius: 50%;
@@ -504,19 +501,19 @@ header>.wrap>a.burgerButton {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     padding: 25px;
 }
 
 #blog h1 {
-    width: calc(100% - 100px);
+    width: calc(100% - 150px);
     display: flex;
     align-self: center;
 
 }
 
 #blog>.wrap>a {
-    width: 100px;
+    width: 150px;
     height: 50px;
     line-height: 50px;
     margin: 30px 0;
@@ -528,22 +525,24 @@ header>.wrap>a.burgerButton {
     transition: 0.5s;
 }
 
-#blog .blogFirst {
-    background-color: crimson;
+#blog .blogFirst .blogImg {
+    width: 100%;
+    overflow: hidden;
 }
 
 #blog .blogFirst img {
     width: 100%;
 }
 
-#blog .blogList {
-    background-color: violet;
-}
-
 #blog .blogList li {
     height: calc(100% / 3 - 1px);
     box-sizing: border-box;
     border-bottom: 1px solid var(--blackC);
+}
+
+#blog .wrap span{
+    color: var(--grayMiddle);
+    display: block;
 }
 
 /* 푸터 */
@@ -690,7 +689,7 @@ footer .footerBottom .sns {
     }
 
     #replies .repliesList {
-        /* width: 100%; */
+        width: 100%;
     }
 
   
@@ -787,6 +786,19 @@ footer .footerBottom .sns {
         flex-direction: column;
     }
 
+    #imageSlide .starPoint li {
+        width: 50%;
+    }
+
+    #imageSlide .starPoint>li:first-of-type{
+        border-right: 1px solid var(--grayLight);
+    }
+
+    #imageSlide .starPoint>li:last-of-type {
+        border-left: 1px solid var(--grayLight);
+        padding-left: 10px;
+    }
+
     #imageSlide>div:last-child {
         background-position: 50% 30%;
         height: 300px;
@@ -800,7 +812,7 @@ footer .footerBottom .sns {
 
     #slidePop li {
         width: 100%;
-    }
+    } 
 
     /*바로가기*/
     #direction>.wrap {
@@ -993,6 +1005,11 @@ footer .footerBottom .sns {
         padding-top: 300px;
     }
 
+    #replies .repliesList {
+        width: calc(200% / 3 - 100px);
+        margin: 0 50px;
+    }
+
     #replies h1 {
         width: calc(100% / 3);
     }
@@ -1006,8 +1023,13 @@ footer .footerBottom .sns {
     }
 
     /* 블로그 글 */
-    #blog .blogFirst, #blog .blogList {
+    #blog .blogFirst {
         width: 50%;
+        height: 600px;
+    }
+
+    #blog .blogList {
+        width: 45%;
         height: 600px;
     }
 
