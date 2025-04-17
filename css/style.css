@@ -31,6 +31,19 @@ li {
     display: flex;
 }
 
+input[type="submit"] {
+    border: none;
+    background-color: var(--blackC);
+    color: var(--whitePerfect);
+    cursor: pointer;
+    transition: 1s;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--orangeF);
+}
+
 /* 헤더 */
 header {
     display: flex;
@@ -67,7 +80,16 @@ nav>ul {
 
 nav>ul>li {
     display: flex;
+    flex-direction: column;
+    position: relative;
 }
+
+nav>ul>li>ul {
+    display: block;
+    position: relative;
+
+}
+
 
 nav>ul>li>a {
     color: var(--grayMiddle);
@@ -131,15 +153,15 @@ header>.wrap>a.burgerButton {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box;
+    padding: 100px 25px;
 }
 
 #imageSlide>div:first-child a {
     background-color: var(--blackC);
     color: var(--whitePerfect);
     width: 180px;
-    height: 50px;
-    line-height: 50px;
-    margin: 50px 0;
+    padding: 5px 20px;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
@@ -153,7 +175,6 @@ header>.wrap>a.burgerButton {
 /* 이미지 슬라이드 점수 */
 #imageSlide .starPoint {
     display: flex;
-    bottom: 0;
 }
 
 #imageSlide .starPoint li {
@@ -214,7 +235,7 @@ header>.wrap>a.burgerButton {
 
 /* 슬라이드 우측 */
 #imageSlide>div:last-child {
-    background-image: url("../image/fedex1.jpg");
+    background-image: url("../image/fedex9.jpg");
     background-size: cover;
 }
 
@@ -224,17 +245,12 @@ header>.wrap>a.burgerButton {
     background-color: var(--orangeF);
     box-sizing: border-box;
     padding: 50px;
-    height: 300px;
     display: flex;
     justify-content: space-between;
 }
 
 #slidePop li {
-    background-color: var(--grayMiddle);
-    width: 30%;
-}
-
-#slidePop li:last-of-type {
+    width: 45%;
     background-color: var(--whiteC);
     box-sizing: border-box;
     padding: 25px;
@@ -243,19 +259,17 @@ header>.wrap>a.burgerButton {
     justify-content: space-between;
 }
 
-#slidePop li:last-of-type p {
-    margin-bottom: 30px;
+#slidePop input[type="text"] {
+    margin-top: 25px;
+    padding: 10px 0;
 }
 
-#slidePop li:last-of-type a {
+#slidePop input[type="submit"] {
     display: block;
     text-align: center;
     width: 100%;
-    padding: 10px 0;
-    background-color: var(--blackC);
-    color: var(--whitePerfect);
-    font-weight: bold;
-
+    padding: 10px;
+    margin-top: 20px;
 }
 
 /* 바로가기 */
@@ -268,22 +282,28 @@ header>.wrap>a.burgerButton {
 
 #direction>.wrap {
     justify-content: center;
-    height: 1200px;
 }
 
-#direction .s1Left {
-    background-color:dodgerblue;
+#direction .noteDirection {
+    position: relative;
     width: 45.5%;
-    height: 98%;
-
+    background-image: url("../image/fedex6.jpg");
+    background-size: cover;
 }
 
-#direction .s1Left>div {
+#direction .noteDirection>div {
+    position: absolute;
+    padding: 25px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#direction .noteDirection>div>div {
     position: sticky;
     top: 0;
 }
 
-#direction .s1Right {
+#direction .directionList {
     width: 47.5%;
     height: 100%;
     display: flex;
@@ -291,35 +311,36 @@ header>.wrap>a.burgerButton {
     justify-content: space-between;
 }
 
-#direction .s1Right>li {
-
+#direction .directionList>li {
     box-sizing: border-box;
     padding: 5%;
-    height: 22%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    background-color: var(--grayLight);
+    margin-top: 20px;
 }
 
-#direction .s1Right p {
-    width: 60%;
-    font-size: 60px;
+#direction h1,
+#direction .directionList p {
+    font-size: 45px;
     font-weight: bold;
     color: var(--orangeF);
-    text-shadow: 2px 2px 3px var(--purpleF);
 }
 
-#direction .s1Right span {
+#direction .directionList span {
     width: 60%;
 }
 
-#direction .s1Right img {
-    height: 100%;
+#direction .directionList img {
+    width: 25%;
+    display: flex;
+    align-self: flex-end;
 }
 
 /* 신청 양식 */
 #requestForm {
-    background-image: url("../image/fedex7.jpg");
+    background-image: url("../image/fedex1.jpg");
     background-size: cover;
     background-position: 0 50%;
     display: flex;
@@ -336,7 +357,6 @@ header>.wrap>a.burgerButton {
     background-color: var(--whiteC);
     box-shadow: 1px 1px 3px 1px #cccc;
     position: relative;
-    height: 600px;
 }
 
 #requestForm .request>h1 {
@@ -349,23 +369,37 @@ header>.wrap>a.burgerButton {
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#requestForm .request p {
-    width: 49%;
+#requestForm .request p,
+#requestForm .request label,
+#requestForm .request input[type="text"] {
+    display: block;
 }
 
-#requestForm .request input[type="radio"] {
-
+#requestForm .request p:nth-child(-n+4) {
+    display: inline-block;
 }
 
 #requestForm .request input[type="text"] {
-    width: 49%;
+    border: none;
+    background-color: var(--grayLight);
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
+
+#requestForm .request input[type="submit"] {
+    width: 49%;
+    padding: 10px 0;
+}
+
+
 
 /* 신청서 안내 */
 #requestForm .noteRequest {
-    color: #ffffff;
+    color: var(--whitePerfect);
     padding: 50px 25px 0;
     width: 100%;
     text-shadow: 0px 0px 5px var(--blackC);
@@ -581,6 +615,11 @@ header>.wrap>a.burgerButton {
 #blog .wrap span{
     color: var(--grayMiddle);
     display: block;
+    font-size: 18px;
+}
+
+#blog p {
+    font-size: 23px;
 }
 
 /* 푸터 */
@@ -633,8 +672,16 @@ footer .footerBottom {
 footer .footerBottom .sns {
     display: flex;
 }
-/*------------------------------*/
 
+footer .footerBottom .sns li{
+    margin: 0 5px;
+}
+
+footer .footerBottom .sns a{
+    color: var(--whitePerfect)
+}
+
+/*------------------------------*/
 
 /* 너비 760px 미만 */
 @media all and (max-width: 760px) {
@@ -673,6 +720,10 @@ footer .footerBottom .sns {
         margin-bottom: 100px;
     }
 
+    #imageSlide>div:first-child h1 span {
+        display: inline;
+    }
+
     #imageSlide>div:last-child {
         background-position: 50% 30%;
         height: 300px;
@@ -692,6 +743,7 @@ footer .footerBottom .sns {
     #slidePop li {
         width: 100%;
     }
+
     
     /*바로가기*/
     #direction .wrap {
@@ -700,12 +752,13 @@ footer .footerBottom .sns {
        
     }
 
-    #direction .s1Left {
+    #direction .noteDirection {
         margin: 0 25px;
         width: calc(100% - 50px);
+        height: 400px;
     }
 
-    #direction .s1Right {
+    #direction .directionList {
         width: 100%;
     }
 
@@ -717,6 +770,16 @@ footer .footerBottom .sns {
     }
 
     #requestForm .request {
+        width: 100%;
+    }
+
+    #requestForm .request p {
+        width: calc(100% - 20px);
+    }
+
+    #requestForm .request label,
+    #requestForm .request input[type="text"],
+    #requestForm .request input[type="submit"] {
         width: 100%;
     }
 
@@ -752,6 +815,7 @@ footer .footerBottom .sns {
     #blog .blogFirst {
         width: 100%;
         border-bottom: 1px solid var(--blackC);
+        padding-bottom: 50px;
     }
 
     #blog .blogList {
@@ -759,7 +823,7 @@ footer .footerBottom .sns {
     }
 
     #blog .blogList li{
-        height: 200px;
+        padding-bottom: 50px;
     }
 
     /* 푸터 */
@@ -787,7 +851,8 @@ footer .footerBottom .sns {
     }
 
     footer .footerBottom .sns {
-        padding-top: 25px;   
+        padding-top: 25px;
+        justify-content: flex-start; 
     }
 }
 
@@ -839,6 +904,10 @@ footer .footerBottom .sns {
         border-right: 1px solid var(--grayLight);
     }
 
+    #imageSlide>div:first-child h1 span {
+        display: inline;
+    }
+
     #imageSlide .starPoint>li:last-of-type {
         border-left: 1px solid var(--grayLight);
         padding-left: 10px;
@@ -865,12 +934,13 @@ footer .footerBottom .sns {
         flex-direction: column;
     }
 
-    #direction .s1Left {
+    #direction .noteDirection {
         margin: 0 25px;
         width: calc(100% - 50px);
+        height: 400px;
     }
 
-    #direction .s1Right {
+    #direction .directionList {
         margin: 0 25px;
         width: calc(100% - 50px);
     }
@@ -882,8 +952,16 @@ footer .footerBottom .sns {
         padding: 50px 0;
     }
 
-
     #requestForm .request {
+        width: 100%;
+    }
+
+    #requestForm .request p ,
+    #requestForm .request label {
+        width: 49%;
+    }
+
+    #requestForm .request input[type="text"] {
         width: 100%;
     }
 
@@ -917,6 +995,8 @@ footer .footerBottom .sns {
     /* 블로그 글 */
     #blog .blogFirst {
         width: 100%;
+        border-bottom: 1px solid var(--blackC);
+        padding-bottom: 50px;
     }
 
     #blog .blogList {
@@ -924,7 +1004,7 @@ footer .footerBottom .sns {
     }
 
     #blog .blogList li {
-        height: 200px;
+        padding-bottom: 50px;
     }
 
     /* 푸터 */
@@ -948,6 +1028,9 @@ footer .footerBottom .sns {
         padding-top: 10px;    
     } 
 
+    footer .footerBottom .sns li{
+        justify-content: flex-end;
+    }
 }
 
 /* 너비 1000px 이상 */
@@ -972,7 +1055,7 @@ footer .footerBottom .sns {
     }
 
     nav>ul>li {
-        display: flex;
+        
         width: 100px;
         align-items: center;
         justify-content: center;
@@ -1006,6 +1089,10 @@ footer .footerBottom .sns {
         height: calc(100% - 100px);
     }
 
+    #imageSlide>div:first-child h1 span {
+        display: block;
+    }
+
     #imageSlide>div:last-child {
         position: absolute;
         left: 50%;
@@ -1015,7 +1102,6 @@ footer .footerBottom .sns {
 
     #imageSlide .starPoint {
         height: 100px;
-        margin-bottom: 100px;
     }
 
     /* 슬라이드 팝업 */
@@ -1026,7 +1112,7 @@ footer .footerBottom .sns {
     }
 
     #slidePop li {
-        width: 30%;
+        width: 49%;
     }
 
 
@@ -1034,6 +1120,18 @@ footer .footerBottom .sns {
     #direction .wrap {
         flex-direction: row;
         align-items: normal;
+    }
+
+    #direction .noteDirection{
+        height: auto;
+    }
+
+    #direction .noteDirection>div{
+        height: 100%;
+    }
+
+    #direction .directionList>li:first-child {
+        margin: 0;
     }
 
     /* 신청양식 */
@@ -1049,9 +1147,19 @@ footer .footerBottom .sns {
 
     #requestForm>.wrap>div {
         margin-top: 100px;
-        width: 100%;
+        
     }
 
+    #requestForm .request{
+        padding-bottom: 600px;
+        width: 60%;
+    }
+
+    #requestForm .noteRequest{
+        padding-bottom: 600px;
+        width: 40%;
+    }
+    
     /* 댓글 */
     #replies {
         padding-top: 300px;
@@ -1078,12 +1186,17 @@ footer .footerBottom .sns {
     /* 블로그 글 */
     #blog .blogFirst {
         width: 50%;
-        height: 600px;
+        height: 550px;
+        border: none;
+        padding: 0;
     }
 
     #blog .blogList {
         width: 45%;
-        height: 600px;
+    }
+
+    #blog .blogList li {
+        padding: 0;
     }
 
     /* 푸터 */
@@ -1122,6 +1235,7 @@ footer .footerBottom .sns {
         right: 50%;
         width: 635px;
         height: calc(100% - 100px);
+        
     }
 
     #slidePop {
