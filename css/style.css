@@ -54,6 +54,7 @@ header {
 
 header>.wrap{
     justify-content: space-between;
+    padding: 0 1.5%;
 }
 
 /* 헤더 로고 */
@@ -91,14 +92,24 @@ nav>ul>li>ul {
 }
 
 
-nav>ul>li>a {
+nav>ul>li a {
     color: var(--grayMiddle);
     font-weight: bold;
     transition: 0.5s;
 }
 
-nav>ul>li>a:hover {
+nav>ul>li a:hover {
     color: var(--orangeF);
+}
+
+nav>ul>li>ul {
+    background-color: var(--grayLight);
+    display: none;
+}
+
+nav>ul>li>ul a {
+    display: block;
+    width: 100%;
 }
 
 /*공통 헤더 우측 버튼 */
@@ -294,13 +305,20 @@ header>.wrap>a.burgerButton {
 #direction .noteDirection>div {
     position: absolute;
     padding: 25px;
-    height: 100%;
+    
+    width: calc(100% - 50px);
     background: rgba(255, 255, 255, 0.5);
 }
 
 #direction .noteDirection>div>div {
+    display: flex;
+    flex-wrap: wrap;
     position: sticky;
     top: 0;
+}
+
+#direction .noteDirection p {
+    font-size: 20px;
 }
 
 #direction .directionList {
@@ -406,7 +424,7 @@ header>.wrap>a.burgerButton {
 }
 
 /* 댓글 */
-#replies {
+#business {
     background-color: var(--whitePerfect);
     background-image: url("../image/worldmap.png");
     background-size: cover;
@@ -415,18 +433,25 @@ header>.wrap>a.burgerButton {
     justify-content: center;
 }
 
-#replies>.wrap {
+#business>.wrap {
     flex-wrap: wrap;
     padding: 0 25px;
     box-sizing: border-box;
     justify-content: center;
 }
 
-#replies .repliesList {
-    position: relative;
+#business h1 {
+    width: 100%;
+    margin-bottom: 30px;
 }
 
-#replies .repliesList>p {
+#business .businessSlide {
+    position: relative;
+    width: 95%;
+    margin-bottom: 100px;
+}
+
+#business .businessSlide>p {
     display: block;
     position: absolute;
     background-color: var(--purpleF);
@@ -441,73 +466,51 @@ header>.wrap>a.burgerButton {
     overflow: visible;
 }
 
-#replies .repliesList>p:hover {
+#business .businessSlide>p:hover {
     cursor: pointer;
 }
 
-#replies .repliesList>p:first-of-type {
+#business .businessSlide>p:first-of-type {
     left: -25px;
 }
 
-#replies .repliesList>p:last-of-type {
-    right: -25px
+#business .businessSlide>p:last-of-type {
+    right: -25px;
 }
 
-#replies .replyWrap {
+#business .businessWrap {
     overflow: hidden;
 }
 
-#replies .replySlide {
+#business .businessList {
     background-color: transparent;
     display: flex;
     justify-content: space-evenly;
-    width: calc(400% / 2);
+    
 }
 
-#replies .replySlide>li {
+#business .businessList>li {
     background-color: var(--whiteC);
     border: 3px solid var(--purpleF);
-}
-
-#replies .replySlide>li p:last-of-type {
-    color:var(--orangeF);
-}
-
-#replies .replyMember {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#replies .replyMember>div {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-#replies .replyMember>div img {
-    width: 100%;
-}
-
-#replies .replyMember ul {
-    width: calc(100% - 75px);
-    margin-left: 25px;
+    height: 450px;
     display: flex;
     flex-direction: column;
-    background-color: transparent;
+    justify-content: space-between;
 }
 
-#replies .companies {
-    display: flex;
-    flex-wrap: wrap;
+#business .businessList .listImg {
     width: 100%;
-    margin-bottom: 100px;
-    align-items: center;
+    height: 70%;
+    overflow: hidden;
+    position: relative;
 }
 
-#replies .companies img {
+#business .businessList img{
     width: 100%;
-    opacity: 0.6;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 /* 배너 */
@@ -515,7 +518,6 @@ header>.wrap>a.burgerButton {
     display: flex;
     justify-content: center;
     margin: 0 25px;
-    
 }
 
 #bannerSite .banner {
@@ -580,14 +582,13 @@ header>.wrap>a.burgerButton {
     width: calc(100% - 150px);
     display: flex;
     align-self: center;
-
 }
 
 #blog>.wrap>a {
     width: 150px;
     height: 50px;
     line-height: 50px;
-    margin: 30px 0;
+    margin: 0 0 30px;
     font-weight: bold;
     color: var(--whitePerfect);
     justify-content: flex-end;
@@ -707,6 +708,10 @@ footer .footerBottom .sns a{
         padding: 10px 20px;
     }
 
+    nav>ul>li>ul>li {
+        padding: 10px 0;
+    }
+
     header>.wrap>a.orangeButton {
         display: none;
     }
@@ -721,7 +726,11 @@ footer .footerBottom .sns a{
     }
 
     #imageSlide>div:first-child h1 span {
-        display: inline;
+        display: block;
+    }
+
+    #imageSlide>div:first-child>*:not(h1) {
+        margin-top: 50px;
     }
 
     #imageSlide>div:last-child {
@@ -749,13 +758,24 @@ footer .footerBottom .sns a{
     #direction .wrap {
         align-items: center;
         flex-direction: column;
-       
     }
 
     #direction .noteDirection {
         margin: 0 25px;
         width: calc(100% - 50px);
-        height: 400px;
+        height: 600px;
+    }
+
+    #direction .noteDirection>div {
+        height: calc(100% - 50px);
+    }
+    
+    #direction .noteDirection>div>div {
+        height: 100%;
+    }
+
+    #direction .noteDirection img {
+        height:50%;
     }
 
     #direction .directionList {
@@ -784,26 +804,8 @@ footer .footerBottom .sns a{
     }
 
     /* 댓글 */
-    #replies h1 {
+    #business .businessList>li {
         width: 100%;
-        margin-bottom: 50px;
-    }
-
-    #replies .repliesList {
-        width: 95%;
-    }
-
-    #replies .replySlide{
-        width: 400%;
-        margin-left: -100%;
-    }
-
-    #replies .replySlide>li {
-        width: 100%;
-    }
-  
-    #replies .companies>li {
-        width: calc(100% / 2);
     }
 
     /* 배너 */
@@ -881,6 +883,10 @@ footer .footerBottom .sns a{
         padding: 10px 20px;
     }
 
+    nav>ul>li>ul>li {
+        padding: 10px 0;
+    }
+
     header>.wrap>a.orangeButton {
         display: none;
     }
@@ -906,6 +912,10 @@ footer .footerBottom .sns a{
 
     #imageSlide>div:first-child h1 span {
         display: inline;
+    }
+
+    #imageSlide>div:first-child>*:not(h1) {
+        margin-top: 50px;
     }
 
     #imageSlide .starPoint>li:last-of-type {
@@ -940,6 +950,18 @@ footer .footerBottom .sns a{
         height: 400px;
     }
 
+    #direction .noteDirection>div {
+        height: calc(100% - 50px);
+    }
+    
+    #direction .noteDirection>div>div {
+        height: 100%;
+    }
+
+    #direction .noteDirection img {
+        height:50%;
+    }
+
     #direction .directionList {
         margin: 0 25px;
         width: calc(100% - 50px);
@@ -966,25 +988,8 @@ footer .footerBottom .sns a{
     }
 
     /* 댓글 */
-    #replies h1 {
+    #business .businessList>li {
         width: 100%;
-        margin-bottom: 50px;
-    }
-
-    #replies .repliesList {
-        width: 95%;
-    }
-
-    #replies .replySlide{
-        margin-left: -50%;
-    }
-
-    #replies .replySlide>li {
-        width: 100%;
-    }
-
-    #replies .companies>li {
-        width: calc(100% / 3);
     }
 
     /* 배너 */
@@ -1055,12 +1060,24 @@ footer .footerBottom .sns a{
     }
 
     nav>ul>li {
-        
         width: 100px;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
     
+    nav>ul>li>a {
+        height: 24px;
+        margin-top: 38px;
+    }
+
+    nav>ul>li>ul {
+        width:180px;
+    }
+ 
+    nav>ul>li>ul>li {
+        padding: 10px;
+    }
+
     header>.wrap>a.orangeButton {
         display: block;
     }
@@ -1126,8 +1143,13 @@ footer .footerBottom .sns a{
         height: auto;
     }
 
-    #direction .noteDirection>div{
-        height: 100%;
+    #direction .noteDirection>div {
+        height: calc(100% - 50px);
+    }
+
+    #direction .noteDirection img {
+        width: 100%;
+        height: fit-content;
     }
 
     #direction .directionList>li:first-child {
@@ -1161,26 +1183,13 @@ footer .footerBottom .sns a{
     }
     
     /* 댓글 */
-    #replies {
+    #business {
         padding-top: 300px;
     }
 
-    #replies h1 {
-        width: calc(100% / 3);
-    }
-
-    #replies .repliesList {
-        width: calc(200% / 3 - 100px);
-        margin: 0 50px;
-    }
-
-    #replies .replySlide>li {
+    #business .businessList>li {
         width: 20%;
         padding: 25px;
-    }
-
-    #replies .companies>li {
-        width: calc(100% / 6);
     }
 
     /* 블로그 글 */

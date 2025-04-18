@@ -1,3 +1,8 @@
+// 비즈니스 리소스 초기 설정
+let toSlide = decideToSlice($(window).width());
+setBusiListWidth(toSlide);
+
+// jQuery 시행
 $(function(){
     // 헤더 햄버거 메뉴 표시
     $('header .burgerButton').click(function(){
@@ -10,31 +15,56 @@ $(function(){
         $('header nav').slideToggle();
     });
 
-    // 댓글 창 이동 초기 설정
-    let toSlide = -50;
-    $('#replies .replySlide>li:last').clone().prependTo('#replies .replySlide');
-
-    //댓글 창 이동
-    $('#replies .repliesList>p').click(function(){
-        toSlide = -50;
-        if($(window).width() < 760) {
-            toSlide *= 2
-        }
-        // 다음 표시
-        if($(this).text() == '>'){
-            $('#replies .replySlide').animate({'marginLeft':(toSlide * 2) +'%'} , 1000, function(){
-                $('#replies .replySlide>li:first').remove();
-                $('#replies .replySlide>li:first').clone().appendTo('#replies .replySlide');
-                $('#replies .replySlide').css('marginLeft', + (toSlide) + '%');
-            });
-
-        // 이전 표시    
-        } else {
-            $('#replies .replySlide').animate({'marginLeft':'0'} , 1000, function(){
-                $('#replies .replySlide>li:last').remove();
-                $('#replies .replySlide>li:last').clone().prependTo('#replies .replySlide');
-                $('#replies .replySlide').css('marginLeft', + (toSlide) + '%');
-            });
-        }        
+    // 서브메뉴 표시
+    $('nav>ul>li>a').mouseenter(function(){
+        $(this).siblings('ul').show();
     });
+    $('nav>ul>li').mouseleave(function(){
+        $('nav>ul>li>ul').hide();
+    });
+
+    // 비즈니스 리소스 셋업
+    $(window).resize(function(){
+        toSlide = decideToSlice($(window).width());
+        setBusiListWidth(toSlide);
+    });
+    
+    // 비즈니스 리소스 왼쪽 이동
+    $('#business .businessSlide>p').click(function(){
+        if($(this).text() == '>'){
+            $('#business .businessList').stop().animate({
+                'marginLeft': (-1 * toSlide) + '%'
+            }, 1000, function(){
+                $(this).children(':first').appendTo(this);
+                $(this).css('margin','0');
+            }); 
+
+        } else {
+            $('#business .businessList').children(':last').prependTo('#business .businessList');
+            $('#business .businessList').css('marginLeft', (-1 * toSlide) + '%');
+            $('#business .businessList').stop().animate({
+                'marginLeft':'0%'
+            }, 1000);
+        }
+        
+    });  
 });
+
+//jQuery 함수
+/** 현재 창 너비에 따라 슬라이드 할 길이 결정 */
+function decideToSlice(currentWidth) {
+    let toSlide = 100;
+    if(currentWidth >= 760) {
+        toSlide = 50;
+    }
+
+    return toSlide;
+    let busiListNum = $('#business .businessList>li').length;
+    $('#business .businessList').css('width',(busiListNum * toSlide)+'%');
+}
+
+/** 비즈니스 리소스 너비 설정 */
+function setBusiListWidth(toSlide) {
+    let busiListNum = $('#business .businessList>li').length;
+    $('#business .businessList').css('width',(busiListNum * toSlide)+'%');
+}
