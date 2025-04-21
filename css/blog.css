@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+/* 블로그 & 뉴스 */
+#blogpage {
+    padding: 100px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#blogpage .wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#blogpage h1 {
+    margin-bottom: 30px;
+}
+
+/* 블로그 리스트 */
+#blogpage .blogList {
+    display: flex;
+}
+
+#blogpage .blogList li:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+#blogpage .blogList span {
+    color: var(--grayMiddle);
+    font-size: 18px;
+}
+
+#blogpage .blogList p {
+    font-size: 23px;
+}
+
+#blogpage .imgFrame {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+#blogpage .imgFrame img {
+    width: 100%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+#blogpage .moreList {
+    margin: 20px 0 100px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: var(--whitePerfect);
+    background-color: var(--orangeF);
+    justify-content: flex-end;
+    text-align: center;
+    transition: 0.5s;
+}
+
+
+#blogpage .moreList:hover {
+    background-color: var(--purpleF);
+}
+
+/* 온라인 사기 경고 */
+#blogpage .fraudWarning {
+    background-image: url("../image/fedex_hub3.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    
+}
+
+#blogpage .fraudWarning>div {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px 25px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+#blogpage .fraudWarning img {
+    width: 100px;
+    height: 100px;
+}
+
+#blogpage .fraudWarning ul{
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+}
+
+/* 뉴스 구독 */
+
+/*------------------------------*/
+
+/* 너비 760px 미만 */
+@media all and (max-width: 760px) {
+    #blogpage .blogList {
+        flex-direction: column;
+    }
+}
+
+/* 너비 760px 이상 */
+@media all and (min-width: 760px) {
+    #blogpage .blogList {
+        flex-direction: column;
+    }
+}
+
+/* 너비 1000px 이상 */
+@media all and (min-width: 1000px) {
+    #blogpage .blogList {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #blogpage .blogList li {
+        width: 30%;
+    }
+}
+
+/* 너비 1320px 이상 */
+@media all and (min-width: 1320px) {
+    
+}

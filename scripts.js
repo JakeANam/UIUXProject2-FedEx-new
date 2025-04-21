@@ -33,7 +33,7 @@ $(function(){
     $('#business .businessSlide>p').click(function(){
         if($(this).text() == '>'){
             $('#business .businessList').stop().animate({
-                'marginLeft': (-1 * toSlide) + '%'
+                'marginLeft': ((-1 * toSlide) + 1) + '%'
             }, 1000, function(){
                 $(this).children(':first').appendTo(this);
                 $(this).css('margin','0');
@@ -41,9 +41,9 @@ $(function(){
 
         } else {
             $('#business .businessList').children(':last').prependTo('#business .businessList');
-            $('#business .businessList').css('marginLeft', (-1 * toSlide) + '%');
+            $('#business .businessList').css('marginLeft', ((-1 * toSlide) + 1) + '%');
             $('#business .businessList').stop().animate({
-                'marginLeft':'0%'
+                'marginLeft':'1%'
             }, 1000);
         }
         
