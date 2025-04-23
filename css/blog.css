@@ -17,13 +17,16 @@
     margin-bottom: 30px;
 }
 
+/* 블로그 리스트 페이지 */
 /* 블로그 리스트 */
 #blogpage .blogList {
     display: flex;
 }
 
-#blogpage .blogList li:not(:last-child) {
-    margin-bottom: 50px;
+
+
+#blogpage .blogList li a {
+    color: var(--blackC)
 }
 
 #blogpage .blogList span {
@@ -35,13 +38,13 @@
     font-size: 23px;
 }
 
-#blogpage .imgFrame {
+#blogpage .blogListImg {
     width: 100%;
     height: 200px;
     overflow: hidden;
 }
 
-#blogpage .imgFrame img {
+#blogpage .blogListImg img {
     width: 100%;
     position: relative;
     transform: translate(-50%, -50%);
@@ -50,7 +53,7 @@
 }
 
 #blogpage .moreList {
-    margin: 20px 0 100px;
+    margin-bottom: 100px;
     width: 150px;
     height: 50px;
     line-height: 50px;
@@ -61,7 +64,6 @@
     text-align: center;
     transition: 0.5s;
 }
-
 
 #blogpage .moreList:hover {
     background-color: var(--purpleF);
@@ -75,7 +77,6 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    
 }
 
 #blogpage .fraudWarning>div {
@@ -96,7 +97,29 @@
 }
 
 /* 뉴스 구독 */
+#blogpage .subscribeNews {
+    display: flex;
+    flex-direction: row;
+}
 
+/* 블로그 기사 페이지 */
+#blogpage .blogArticle {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+#blogpage .blogArticle img {
+    width: 100%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+#blogpage article h3 {
+    margin: 20px 0 5px;
+}
 /*------------------------------*/
 
 /* 너비 760px 미만 */
@@ -104,6 +127,11 @@
     #blogpage .blogList {
         flex-direction: column;
     }
+
+    #blogpage .blogList li {
+        margin-bottom: 50px;
+    }
+
 }
 
 /* 너비 760px 이상 */
@@ -111,6 +139,11 @@
     #blogpage .blogList {
         flex-direction: column;
     }
+
+    #blogpage .blogList li {
+        margin-bottom: 50px;
+    }
+
 }
 
 /* 너비 1000px 이상 */
@@ -122,7 +155,10 @@
 
     #blogpage .blogList li {
         width: 30%;
+        margin-bottom: 10px;
     }
+
+    
 }
 
 /* 너비 1320px 이상 */

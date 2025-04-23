@@ -31,40 +31,39 @@ $(function(){
     
     // 비즈니스 리소스 왼쪽 이동
     $('#business .businessSlide>p').click(function(){
-        if($(this).text() == '>'){
+        // 다음 버튼
+        if($(this).text() == '>'){   
             $('#business .businessList').stop().animate({
-                'marginLeft': ((-1 * toSlide) + 1) + '%'
+                'marginLeft': toSlide + '%'
             }, 1000, function(){
                 $(this).children(':first').appendTo(this);
                 $(this).css('margin','0');
             }); 
 
+        // 이전 버튼
         } else {
             $('#business .businessList').children(':last').prependTo('#business .businessList');
-            $('#business .businessList').css('marginLeft', ((-1 * toSlide) + 1) + '%');
+            $('#business .businessList').css('marginLeft', toSlide + '%');
             $('#business .businessList').stop().animate({
-                'marginLeft':'1%'
+                'marginLeft':'0%'
             }, 1000);
         }
-        
     });  
 });
 
 //jQuery 함수
 /** 현재 창 너비에 따라 슬라이드 할 길이 결정 */
 function decideToSlice(currentWidth) {
-    let toSlide = 100;
+    let toSlide = -100;
     if(currentWidth >= 760) {
-        toSlide = 50;
+        toSlide = -50;
     }
 
     return toSlide;
-    let busiListNum = $('#business .businessList>li').length;
-    $('#business .businessList').css('width',(busiListNum * toSlide)+'%');
 }
 
 /** 비즈니스 리소스 너비 설정 */
 function setBusiListWidth(toSlide) {
     let busiListNum = $('#business .businessList>li').length;
-    $('#business .businessList').css('width',(busiListNum * toSlide)+'%');
+    $('#business .businessList').css('width',(busiListNum * toSlide * -1)+'%');
 }
