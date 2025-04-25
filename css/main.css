@@ -211,8 +211,15 @@ input[type="submit"]:hover {
     color: var(--orangeF);
 }
 
+#direction .directionList a {
+    color: var(--purpleF);
+    font-size: 20px;
+}
+
 #direction .directionList span {
-    width: 60%;
+    display: inline-block;
+    transform: rotate(-45deg);
+    margin-left: 10px;
 }
 
 #direction .directionList img {
@@ -336,6 +343,22 @@ input[type="submit"]:hover {
     right: -25px;
 }
 
+#business .businessSlide a {
+    display: flex;
+    justify-content: center;
+    background-color: var(--orangeF);
+    color: var(--whitePerfect);
+    width: 160px;
+    margin: 0 auto;
+    padding: 5px 0;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+#business .businessSlide a:hover {
+    background-color: var(--purpleF);
+}
+
 #business .businessWrap {
     overflow: hidden;
 }
@@ -454,6 +477,7 @@ input[type="submit"]:hover {
     align-self: center;
     text-align: center;
     transition: 0.5s;
+    transform: rotate(0deg);
 }
 
 #blog .blogFirst .blogImg {
@@ -472,7 +496,8 @@ input[type="submit"]:hover {
     border-bottom: 1px solid var(--blackC);
 }
 
-#blog .wrap span{
+#blog .blogFirst>span,
+#blog li>span {
     color: var(--grayMiddle);
     display: block;
     font-size: 18px;
@@ -482,7 +507,18 @@ input[type="submit"]:hover {
     font-size: 23px;
 }
 
-/*------------------------------*/
+#blog .blogFirst a,
+#blog .blogList a {
+    color: var(--purpleF)
+}
+
+#blog a span {
+    color: var(--purpleF);
+    margin-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+    transform: rotate(-45deg);
+}
 
 /* 너비 760px 미만 */
 @media all and (max-width: 760px) {
