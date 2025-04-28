@@ -409,6 +409,8 @@ input[type="submit"]:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #bannerSite .banner ul {
@@ -419,10 +421,19 @@ input[type="submit"]:hover {
 }
 
 #bannerSite .banner li {
-    height: 50%;
+    padding-bottom: 20px;
+}
+
+#bannerSite .banner li:nth-child(1) {
     font-size: 30px;
-    display: flex;
-    align-items: center;
+}
+
+#bannerSite .banner li:nth-child(2) {
+    font-size: 20px;
+}
+
+#bannerSite .banner li:nth-child(3) {
+    font-size: 15px;
 }
 
 #bannerSite .banner a {
