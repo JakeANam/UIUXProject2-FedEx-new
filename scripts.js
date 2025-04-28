@@ -98,8 +98,14 @@ function setBusiListWidth(toSlide) {
     $('#business .businessList').css('width',(busiListNum * toSlide * -1)+'%');
 }
 
+// 기사 목록 이동
+function moveArticleList() {
+    alert("블로그, 기사 목록 페이지로 이동합니다.");
+    location.href="./blogList.html";
+}
+
 // 기사문 이동
-function moveThisArticle(){
+function moveThisArticle() {
     alert("제작 중인 기사 하나로 이동합니다.");
     location.href="./blogArticle.html";
 }
