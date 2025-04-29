@@ -760,6 +760,15 @@ input[type="submit"]:hover {
 
 /* 너비 1000px 이상 */
 @media all and (min-width: 1000px) {
+    /* 바로가기 */
+    #direction .noteDirection>div>div {
+        height: auto
+    }
+
+    #direction .noteDirection>div>div>h1 {
+        margin: 20px 0;
+    }
+
     /* 이미지 슬라이드 */
     #imageSlide {
         width: 100%;

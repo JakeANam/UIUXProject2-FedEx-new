@@ -75,11 +75,6 @@ nav>ul>li {
     position: relative;
 }
 
-nav>ul>li>ul {
-    display: block;
-    position: relative;
-}
-
 nav>ul>li a {
     color: var(--grayMiddle);
     font-weight: bold;
@@ -91,9 +86,12 @@ nav>ul>li a:hover {
 }
 
 nav>ul>li>ul {
+    display: block;
+    position: relative;
     background-color: var(--grayLight);
     display: none;
 }
+
 
 nav>ul>li>ul a {
     display: block;

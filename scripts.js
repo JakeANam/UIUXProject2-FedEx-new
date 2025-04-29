@@ -1,6 +1,8 @@
-// 비즈니스 리소스 초기 설정
-let toSlide = decideToSlice($(window).width());
-setBusiListWidth(toSlide);
+// 메인페이지 초기 설정
+let toSlide = decideToSlice($(window).outerWidth()); // 표시할 배너 슬라이스 개수 결정
+setBusiListWidth(toSlide); // 배너 슬라이드의 너비 결정
+
+let originalWidth = $(window).outerWidth();
 
 // jQuery 시행
 $(function(){
@@ -26,18 +28,23 @@ $(function(){
     // 화면 크기가 바뀌면
     $(window).resize(function(){
         // 너비 1000px 이상인데 메인 메뉴 안보이게 했으면 보이게
-        if (!$('nav').is(':visible') && $(window).width() >= 1000) {
+        if (!$('nav').is(':visible') && $(window).outerWidth() >= 1000) {
             $('nav').css('display', 'block');
 
         // 1000px 미만인데 메인 메뉴 보이게 했으면 안보이게
-        } else if ($('nav').is(':visible') && $(window).width() < 1000) {
-            $('nav').css('display', 'none');
-            $('header .burgerButton').css({'backgroundColor':'var(--blackC)','color':'var(--whitePerfect)'});
+        } else if ($('nav').is(':visible') && $(window).outerWidth() < 1000 && originalWidth >= 1000) {
+            
+                $('nav').css('display', 'none');
+                $('header .burgerButton').css({'backgroundColor':'var(--blackC)','color':'var(--whitePerfect)'});
+            
         }
 
         // 비즈니스 리소스 셋업
-        toSlide = decideToSlice($(window).width());
+        toSlide = decideToSlice($(window).outerWidth());
         setBusiListWidth(toSlide);
+
+        // 원래 너비 재설정
+        originalWidth = $(window).outerWidth();
     });
     
     // 비즈니스 리소스 왼쪽 이동
@@ -83,7 +90,11 @@ $(function(){
 });
 
 //jQuery 함수
-// 현재 창 너비에 따라 슬라이드 할 길이 결정
+/**
+ * @param {Number} currentWidth 현재 화면 너비
+ * @returns 화면 너비가 760px 미만이면 슬라이드 할 길이 100%, 760px이상이면 50%
+ * @summary 현재 창 너비에 따라 슬라이드 할 길이 결정
+ */
 function decideToSlice(currentWidth) {
     let toSlide = -100;
     if (currentWidth >= 760) {
@@ -92,19 +103,28 @@ function decideToSlice(currentWidth) {
     return toSlide;
 }
 
-// 비즈니스 리소스 너비 설정
+/**
+ * @param {Number} toSlide 슬라이드 할 길이
+ * @summary 배너슬라이드 갯수와 슬라이드당 너비에 따라 슬라이드 너비 설정
+ */
 function setBusiListWidth(toSlide) {
     let busiListNum = $('#business .businessList>li').length;
     $('#business .businessList').css('width',(busiListNum * toSlide * -1)+'%');
 }
 
-// 기사 목록 이동
+/**
+ * @link "./blogList.html"
+ * @summary 기사 목록 이동
+ */
 function moveArticleList() {
     alert("블로그, 기사 목록 페이지로 이동합니다.");
     location.href="./blogList.html";
 }
 
-// 기사문 이동
+/**
+ * @link "./blogArticle.html"
+ * @summary 기사문 이동
+ */
 function moveThisArticle() {
     alert("제작 중인 기사 하나로 이동합니다.");
     location.href="./blogArticle.html";
