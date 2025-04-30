@@ -124,7 +124,6 @@
 /* 뉴스 구독 */
 #blogpage .subscribeNews {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -264,6 +263,7 @@
 
     #blogpage .subscribeNews li>div:first-child {
         width: 40%;
+        height: 250px;
     }
 
     #blogpage .subscribeNews li>div:last-child {
@@ -311,6 +311,7 @@
     }
 
     #blogpage .blogList li {
+        flex-direction: row;
         margin-bottom: 50px;
     }
     
@@ -326,6 +327,10 @@
     
     #blogpage .blogList img {
         height: 100%;
+    }
+    
+    #blogpage .subscribeNews {
+        flex-direction: row;
     }
 
     #blogpage .subscribeNews li {

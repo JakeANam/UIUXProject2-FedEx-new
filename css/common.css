@@ -43,7 +43,7 @@ header>.wrap {
     padding: 0 1.5%;
 }
 
-/* 로고 */
+/* 헤더 로고 */
 .logo>a {
     height: 100px;
     width: 260px;
@@ -54,10 +54,6 @@ header>.wrap {
 
 header .logo img {
     height: 60%;
-}
-
-footer .logo img {
-    height: 85%;
 }
 
 /* 공통 헤더 메뉴*/
@@ -91,7 +87,6 @@ nav>ul>li>ul {
     background-color: var(--grayLight);
     display: none;
 }
-
 
 nav>ul>li>ul a {
     display: block;
@@ -146,6 +141,10 @@ footer {
 footer>.wrap {
     flex-wrap: wrap;
     padding: 25px;
+}
+
+footer .logo img {
+    height: 85%;
 }
 
 /* 푸터 메뉴 */

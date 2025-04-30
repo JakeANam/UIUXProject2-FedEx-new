@@ -366,8 +366,7 @@ input[type="submit"]:hover {
 #business .businessList {
     background-color: transparent;
     display: flex;
-    justify-content: space-around;
-    
+    justify-content: space-around;    
 }
 
 #business .businessList>li {
@@ -415,7 +414,6 @@ input[type="submit"]:hover {
 
 #bannerSite .banner ul {
     color: var(--whitePerfect);
-    
     display: flex;
     flex-direction: column;
 }
@@ -734,7 +732,6 @@ input[type="submit"]:hover {
     /* 배너 슬라이드 */
     #business .businessList>li {
         width: 20%;
-        
     }
 
     /* 긴 배너 */
@@ -846,7 +843,6 @@ input[type="submit"]:hover {
 
     #requestForm>.wrap>div {
         margin-top: 100px;
-        
     }
 
     #requestForm .request{
